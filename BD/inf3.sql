@@ -34,7 +34,7 @@ CREATE TABLE `produtos` (
   `descricaoProduto` varchar(200) NOT NULL,
   `valorProduto` decimal(10,2) NOT NULL,
   `statusProduto` varchar(10) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `produtos`
@@ -61,7 +61,7 @@ CREATE TABLE `usuarios` (
   `emailUsuario` varchar(50) NOT NULL,
   `senhaUsuario` varchar(100) NOT NULL,
   `tipoUsuario` varchar(15) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Despejando dados para a tabela `usuarios`

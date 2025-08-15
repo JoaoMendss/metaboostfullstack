@@ -13,7 +13,7 @@
 
     <div class="icons">
       <a href="formLogin.php"><img width="30" height="30" src="https://img.icons8.com/material-rounded/30/ffffff/user-male-circle.png" alt="login"/></a>
-      <img width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar produto"/>
+      <a href="formProduto.php"><img width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar produto"/></a>
     </div>
   </section>
 </header>

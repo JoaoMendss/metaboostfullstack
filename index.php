@@ -20,8 +20,8 @@ include "header.php";
   <div class="home-container">
     <section>
       <div class="content">
-        <h3>CODE COM OS MELHORES SUPLEMENTOS PARA GAMERS</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta recusandae atque laborum doloribus.</p>
+        <h3>METABOOST, OS MELHORES SUPLEMENTOS PARA GAMERS</h3>
+        <p>Aqui no MetaBoost nós vendemos os melhores suplementos pessoas que </p>
         <a href="#menu" class="btn">Pegue o seu agora</a>
       </div>
     </section>
