@@ -12,7 +12,7 @@ if (isset($_SESSION['usuario'])) {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Login - Dev MetaBoost</title>
+  <title>Login - MetaBoost</title>
   <link rel="stylesheet" href="style.css" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,14 +25,8 @@ if (isset($_SESSION['usuario'])) {
       <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700;">Login</h2>
       <form action="actionLogin.php" method="POST">
         <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700;">E-mail:</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          required 
-          placeholder="seuemail@exemplo.com"
-          style="width: 100%; padding: 12px 15px; margin-bottom: 20px; border: none; border-radius: 5px; font-size: 16px;"
-        />
+        <input type="email" id="email" name="email" required placeholder="Digite seu email"autocapitalize="none"autocorrect="off"autocomplete="username"
+        style="width: 100%; padding: 12px 15px; margin-bottom: 20px; border: none; border-radius: 5px; font-size: 16px;"/>
 
         <label for="senha" style="display: block; margin-bottom: 8px; font-weight: 700;">Senha:</label>
         <input 
@@ -40,7 +34,10 @@ if (isset($_SESSION['usuario'])) {
           id="senha" 
           name="senha" 
           required 
-          placeholder="********"
+          placeholder="Digite sua senha"
+          autocapitalize="none"
+          autocorrect="off"
+          autocomplete="current-password"
           style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: none; border-radius: 5px; font-size: 16px;"
         />
 
@@ -49,13 +46,7 @@ if (isset($_SESSION['usuario'])) {
           <a href="formUsuario.php" style="color: #88d3d9; font-weight: 700; text-decoration: none;">Cadastre-se aqui</a>
         </div>
 
-        <button 
-          type="submit" 
-          class="btn"
-          style="width: 100%; padding: 15px 0; font-weight: 700; font-size: 18px; border: none; cursor: pointer;"
-        >
-          Entrar
-        </button>
+        <button type="submit" class="btn"style="width: 100%; padding: 15px 0; font-weight: 700; font-size: 18px; border: none; cursor: pointer;">Entrar</button>
       </form>
     </div>
   </div>

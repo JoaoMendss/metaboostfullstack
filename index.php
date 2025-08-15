@@ -12,7 +12,8 @@ include "header.php";
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet">
-  <title>Dev MetaBoost</title>
+  <title>MetaBoost</title>
+  <link rel="icon" type="image/png" href="img/logo.png">
 </head>
 
 <body>
