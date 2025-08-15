@@ -41,9 +41,9 @@ CREATE TABLE `produtos` (
 --
 
 INSERT INTO `produtos` (`idProduto`, `fotoProduto`, `nomeProduto`, `descricaoProduto`, `valorProduto`, `statusProduto`) VALUES
-(1, 'img/xbox360.webp', 'XBox 360', 'Console Xbox 360 modelo Slim bloqueado. Acompanha um controle original.', 600.00, 'disponivel'),
-(2, 'img/Fusca_Azul.jpeg', 'Fusca Azul', 'Volkswagen Fusca na cor Azul Metálico, ano 1973, interna em branco gelo, placa preta.', 20000.00, 'esgotado'),
-(3, 'img/tenisVans.jpg', 'Tênis Vans', 'Calçado Tênis Vans Preto, número 37, novo, na caixa.', 500.00, 'disponivel');
+(1, 'img/produto1.png', 'Suplemento Roxx', 'Suplemento Roxx 500g', 600.00, 'disponivel'),
+(2, 'img/produto2.jpg', 'Creatina Roxx', 'Creatina Roxx 500g', 20000.00, 'esgotado'),
+(3, 'img/produto3.jpg', 'Garrafa Roxx', 'Garrafa Roxx 500ml', 500.00, 'disponivel');
 
 -- --------------------------------------------------------
 
@@ -68,9 +68,9 @@ CREATE TABLE `usuarios` (
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `dataNascimentoUsuario`, `cidadeUsuario`, `telefoneUsuario`, `emailUsuario`, `senhaUsuario`, `tipoUsuario`) VALUES
-(1, 'img/Classico_2D.webp', 'Sonic', '1991-04-10', 'telemacoBorba', '(42) 99999-9999', 'sonic@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
-(2, 'img/mario.png', 'Mario Mario', '1983-12-10', 'imbau', '(42) 99999-7777', 'mario@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente'),
-(3, 'img/Luigi.png', 'Luigi Mario', '1986-03-20', 'telemacoBorba', '(42) 99988-7799', 'luigi@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
+(1, 'img/Classico_2D.webp', 'Eldrey', '1991-04-10', 'telemacoBorba', '(42) 99999-9999', 'eldrey@gmail.com', '202cb962ac59075b964b07152d234b70', 'administrador'),
+(2, 'img/mario.png', 'João Mendes', '1983-12-10', 'imbau', '(42) 99999-7777', 'joao@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente'),
+(3, 'img/Luigi.png', 'Livia Brum', '1986-03-20', 'telemacoBorba', '(42) 99988-7799', 'livia@gmail.com', '202cb962ac59075b964b07152d234b70', 'cliente');
 
 --
 -- Índices para tabelas despejadas
