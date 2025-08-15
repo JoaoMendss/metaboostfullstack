@@ -18,7 +18,7 @@ if (isset($_SESSION['usuario'])) {
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;400;700&display=swap" rel="stylesheet" />
 </head>
-<body style="background-color: #121212; color: white; font-family: 'Roboto', sans-serif;">
+<body style="background-color: #000000; color: white; font-family: 'Roboto', sans-serif;">
 
   <div class="box-container" style="min-height: 100vh; display: flex; justify-content: center; align-items: center; padding: 40px 20px;">
     <div class="box" style="max-width: 400px; width: 100%; background-color: #222; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
