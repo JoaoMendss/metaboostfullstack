@@ -2,7 +2,7 @@
 include "header.php";
 ?>
 
-<section class="box-container" style="min-height: 100vh; display:flex; justify-content:center; align-items:center; padding:5rem 2rem;">
+<section class="box-container" style="min-height: 80vh; display:flex; justify-content:center; align-items:center; padding:5rem 2rem;">
 
 <?php
 if($_SERVER["REQUEST_METHOD"] == "POST"){

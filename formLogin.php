@@ -24,22 +24,13 @@ if (isset($_SESSION['usuario'])) {
     <div class="box" style="max-width: 400px; width: 100%; background-color: #222; padding: 30px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.8);">
       <h2 style="text-align: center; margin-bottom: 25px; font-weight: 700;">Login</h2>
       <form action="actionLogin.php" method="POST">
-        <label for="email" style="display: block; margin-bottom: 8px; font-weight: 700;">E-mail:</label>
-        <input type="email" id="email" name="email" required placeholder="Digite seu email"autocapitalize="none"autocorrect="off"autocomplete="username"
+        <label for="emailUsuario" style="display: block; margin-bottom: 8px; font-weight: 700;">E-mail:</label>
+        <input type="email" id="emailUsuario" name="emailUsuario" required placeholder="Email"autocapitalize="none"autocorrect="off"autocomplete="username"
         style="width: 100%; padding: 12px 15px; margin-bottom: 20px; border: none; border-radius: 5px; font-size: 16px;"/>
 
-        <label for="senha" style="display: block; margin-bottom: 8px; font-weight: 700;">Senha:</label>
-        <input 
-          type="password" 
-          id="senha" 
-          name="senha" 
-          required 
-          placeholder="Digite sua senha"
-          autocapitalize="none"
-          autocorrect="off"
-          autocomplete="current-password"
-          style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: none; border-radius: 5px; font-size: 16px;"
-        />
+        <label for="senhaUsuario" style="display: block; margin-bottom: 8px; font-weight: 700;">Senha:</label>
+        <input type="password" id="senhaUsuario" name="senhaUsuario" required placeholder="Senha" autocapitalize="none" autocorrect="off" autocomplete="current-password"
+          style="width: 100%; padding: 12px 15px; margin-bottom: 10px; border: none; border-radius: 5px; font-size: 16px;"/>
 
         <!-- Link para cadastro -->
         <div style="text-align: right; margin-bottom: 30px;">

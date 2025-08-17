@@ -1,55 +1,40 @@
 <?php
-session_start();
-include "conexaoBD.php";
 
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $email = mysqli_real_escape_string($conn, trim($_POST['email']));
-    $senha = trim($_POST['senha']);
+    include "conexaoBD.php";
+    session_start(); //Inicia uma sessão
 
-    // Consulta o usuário no banco
-    $query = "SELECT * FROM Usuarios WHERE email = '$email' LIMIT 1";
-    $result = mysqli_query($conn, $query);
+    $emailUsuario = mysqli_real_escape_string($conn, $_POST['emailUsuario']);
+    $senhaUsuario = mysqli_real_escape_string($conn, $_POST['senhaUsuario']);
+    $quantidadeLogin = 0; //Contabilizar os logins encontrados pela QUERY
 
-    if ($result && mysqli_num_rows($result) === 1) {
-        $usuario = mysqli_fetch_assoc($result);
+    $buscarLogin = "SELECT *
+                    FROM Usuarios
+                    WHERE emailUsuario = '{$emailUsuario}'
+                    AND senhaUsuario   = md5('{$senhaUsuario}')
+                    ";
 
-        // Verifica a senha - supondo senha armazenada com password_hash
-        if (password_verify($senha, $usuario['senha'])) {
-            // Login válido, cria sessão
-            $_SESSION['usuario'] = [
-                'id' => $usuario['idUsuario'],
-                'nome' => $usuario['nomeUsuario'],
-                'email' => $usuario['email'],
-                'nivel' => $usuario['nivelAcesso'] // ou outro campo que tiver para perfil/permissão
-            ];
-            header("Location: painel.php");
-            exit;
-        } else {
-            $erro = "Senha incorreta.";
-        }
-    } else {
-        $erro = "Usuário não encontrado.";
+    $efetuarLogin = mysqli_query($conn, $buscarLogin);
+
+    if($registro = mysqli_fetch_assoc($efetuarLogin)){
+        $quantidadeLogin = mysqli_num_rows($efetuarLogin);
+
+        //Cria variáveis PHP para armazenar registros encontrados no BD
+        $idUsuario    = $registro['idUsuario'];
+        $tipoUsuario  = $registro['tipoUsuario'];
+        $emailUsuario = $registro['emailUsuario'];
+        $nomeUsuario  = $registro['nomeUsuario'];
+
+        //Cria variáveis de SESSÃO para armazenar valores das variáveis PHP
+        $_SESSION['idUsuario']    = $idUsuario;
+        $_SESSION['tipoUsuario']  = $tipoUsuario;
+        $_SESSION['emailUsuario'] = $emailUsuario;
+        $_SESSION['nomeUsuario']  = $nomeUsuario;
+
+        $_SESSION['logado'] = true; //Variável para controle de sessão
+
+        header('location:index.php'); //Redireciona para a página inicial
     }
-} else {
-    $erro = "Método inválido.";
-}
-
-// Se chegar aqui tem erro:
+    elseif(empty($_POST['emailUsuario']) || empty($_POST['senhaUsuario']) || $quantidadeLogin == 0){
+        header('location:formLogin.php?erroLogin=dadosInvalidos');
+    }
 ?>
-
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Erro no Login</title>
-  <link rel="stylesheet" href="style.css" />
-</head>
-<body style="background:#121212; color:white; display:flex; justify-content:center; align-items:center; height:100vh;">
-  <div style="background:#222; padding:20px; border-radius:8px; width:300px; text-align:center;">
-    <h2>Erro no Login</h2>
-    <p><?= htmlspecialchars($erro) ?></p>
-    <a href="formLogin.php" style="color:#4CAF50;">Voltar para login</a>
-  </div>
-</body>
-</html>
