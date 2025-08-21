@@ -20,9 +20,10 @@ include "header.php";
   <div class="home-container">
     <section>
       <div class="content">
-        <h3>METABOOST, OS MELHORES SUPLEMENTOS PARA GAMERS</h3>
-        <p>Aqui no MetaBoost nós vendemos os melhores suplementos pessoas que </p>
-        <a href="#menu" class="btn">Pegue o seu agora</a>
+        <h2>METABOOST</h2><h3> OS MELHORES SUPLEMENTOS PARA GAMERS</h3>
+        <p>Aumente seu foco, energia e resistência com os melhores suplementos do mercado.
+          Seja para treinar ou maratonar aquele game, o MetaBoost te dá a força que você precisa para alcançar o próximo nível. </p>
+        <a href="#menu" class="btn">Conheça os Anuncios</a>
       </div>
     </section>
   </div>
@@ -34,42 +35,44 @@ include "header.php";
         <img src="./img/foto1.png" alt="Sobre Nós">
       </div>
       <div class="content">
-        <h3>O Que Faz Nossos Suplementos</h3>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto a at officiis tempore.</p>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Magni blanditiis assumenda reiciendis optio!</p>
-        <a href="#" class="btn">Saiba Mais</a>
+        <h3>Quem Somos Nós</h3>
+        <p>O MetaBoost é um marketplace de suplementos pensado para quem passa longas horas em frente ao computador,
+          seja jogando ou trabalhando, cuidando do seu corpo mesmo nos momentos de maior concentração.</p>
+        <p>Este projeto surgiu a partir das aulas de Programação Web e Banco de Dados dos professores Paulo Ricardo e Jailton Junior, e foi desenvolvido pelos alunos Eldrey Santos, João Mendes e Livia Brum da turma de Técnico em Informática para Internet III,
+          no IFPR – Campus Telêmaco Borba, unindo aprendizado e prática para criar uma solução inovadora.</p>
+        <a href="https://github.com/JoaoMendss/metaboostfullstack" target="_blank" class="btn">Saiba Mais</a>
       </div>
     </div>
   </section>
 
   <section class="menu" id="menu">
-    <h2 class="title">Nossos <span>Produtos</span></h2>
+    <h2 class="title">Nossos <span>Anuncios</span></h2>
 
     <div class="box-container">
       
       <?php
-  $query = "SELECT * FROM Produtos";
+  $query = "SELECT * FROM Anuncios";
   $res = mysqli_query($conn, $query);
 
   if(mysqli_num_rows($res) > 0){
     while($registro = mysqli_fetch_assoc($res)){
-      $idProduto        = $registro['idProduto'];
-      $fotoProduto      = $registro['fotoProduto'];
-      $nomeProduto      = $registro['nomeProduto'];
-      $descricaoProduto = $registro['descricaoProduto'];
-      $valorProduto     = $registro['valorProduto'];
-      $statusProduto    = $registro['statusProduto'];
+      $idAnuncio        = $registro['idAnuncio'];
+      $fotoAnuncio      = $registro['fotoAnuncio'];
+      $nomeAnuncio      = $registro['nomeAnuncio'];
+      $descricaoAnuncio = $registro['descricaoAnuncio'];
+      $valorAnuncio     = $registro['valorAnuncio'];
+      $statusAnuncio    = $registro['statusAnuncio'];
 
       echo "
         <div class='box'>
-          <a href='visualizarProduto.php?idProduto=$idProduto'>
-            <img src='$fotoProduto' alt='$nomeProduto' width='180'>
+          <a href='visualizarAnuncio.php?idAnuncio=$idAnuncio'>
+            <img src='$fotoAnuncio' alt='$nomeAnuncio' width='180'>
           </a>
-          <h3>$nomeProduto</h3>
-          <div class='price'>R$ $valorProduto</div>";
+          <h3>$nomeAnuncio</h3>
+          <div class='price'>R$ $valorAnuncio</div>";
 
-          if($statusProduto != 'esgotado'){
-            echo "<a href='visualizarProduto.php?idProduto=$idProduto' class='btn'>Visualizar Produto</a>";
+          if($statusAnuncio != 'esgotado'){
+            echo "<a href='visualizarAnuncio.php?idAnuncio=$idAnuncio' class='btn'>Visualizar Anuncio</a>";
           } else {
             echo "<div class='btn' style='background:#888; cursor: not-allowed;'>Esgotado</div>";
           }
@@ -77,7 +80,7 @@ include "header.php";
       echo "</div>";
     }
   } else {
-    echo "<p style='color:white;'>Nenhum produto encontrado.</p>";
+    echo "<p style='color:white;'>Nenhum Anuncio encontrado.</p>";
   }
 ?>
 
@@ -93,12 +96,8 @@ include "header.php";
     <!-- Pode copiar daqui do seu HTML -->
   </section>
 
-  <section class="footer">
-    <div class="share">
-      <a href="https://www.instagram.com/joaoluiiz._/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/instagram-new.png" alt="Instagram"/></a>
-      <a href="https://wa.me/5542998682358" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/whatsapp.png" alt="WhatsApp"/></a>
-      <a href="https://www.linkedin.com/in/joao-mendes-63816b330/" target="_blank"><img src="https://img.icons8.com/ios-glyphs/30/ffffff/linkedin.png" alt="LinkedIn"/></a>
-    </div>
-  </section>
+ <?php
+include "footer.php";
+?>
 </body>
 </html>
