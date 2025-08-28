@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 21/08/2025 às 22:48
--- Versão do servidor: 8.0.40
--- Versão do PHP: 8.2.12
+-- Tempo de geração: 28-Ago-2025 às 22:12
+-- Versão do servidor: 8.0.29
+-- versão do PHP: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `anuncios`
+-- Estrutura da tabela `anuncios`
 --
 
 CREATE TABLE `anuncios` (
@@ -39,53 +39,60 @@ CREATE TABLE `anuncios` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `anuncios`
+-- Extraindo dados da tabela `anuncios`
 --
 
 INSERT INTO `anuncios` (`idAnuncio`, `Usuarios_idUsuario`, `Categorias_idCategoria`, `fotoAnuncio`, `nomeAnuncio`, `descricaoAnuncio`, `valorAnuncio`, `statusAnuncio`) VALUES
-(1, 1, 1, 'img/produto1.png', 'Suplemento Roxx', 'A Creatina Roxx 500g é ideal para quem busca mais \n\n\n\nforça, resistência e performance nos treinos. Sua fórmula pura garante absorção rápida e máxima eficiência, auxiliando no aumento da energia muscular e recuperação. Perfeita para atletas de todas as modalidades e quem deseja potencializar resultados de forma segura.', 600.00, 'disponivel'),
-(2, 2, 1, 'img/produto1.png', 'Creatina Roxx', 'Creatina Roxx 500g', 20000.00, 'esgotado'),
-(3, 3, 1, 'img/produto3.jpg', 'Garrafa Roxx', 'Garrafa Roxx 500ml', 500.00, 'disponivel'),
-(6, 1, 1, 'img/imagem4.png', 'Creatina Growth', 'Creatina Growth Teste Teste', 120.00, 'disponivel');
+(1, 1, 1, 'img/produto1.png', 'Suplemento Roxx', 'A Creatina Roxx 500g é ideal para quem busca mais \n\n\n\nforça, resistência e performance nos treinos. Sua fórmula pura garante absorção rápida e máxima eficiência, auxiliando no aumento da energia muscular e recuperação. Perfeita para atletas de todas as modalidades e quem deseja potencializar resultados de forma segura.', '600.00', 'disponivel'),
+(2, 2, 1, 'img/produto1.png', 'Creatina Roxx', 'Creatina Roxx 500g', '20000.00', 'esgotado'),
+(3, 3, 1, 'img/produto3.jpg', 'Garrafa Roxx', 'Garrafa Roxx 500ml', '500.00', 'disponivel'),
+(6, 1, 1, 'img/imagem4.png', 'Creatina Growth', 'Creatina Growth Teste Teste', '120.00', 'disponivel');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `categorias`
+-- Estrutura da tabela `categorias`
 --
 
 CREATE TABLE `categorias` (
   `idCategoria` int NOT NULL,
-  `nomeCategoria` varchar(20) NOT NULL
+  `nomeCategoria` varchar(20) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `categorias`
+-- Extraindo dados da tabela `categorias`
 --
 
 INSERT INTO `categorias` (`idCategoria`, `nomeCategoria`) VALUES
-(1, 'Creatina');
+(1, 'Creatina'),
+(2, 'Pré-Treino'),
+(5, 'Whey Protein'),
+(6, 'Carboidratos'),
+(7, 'BCAA'),
+(8, 'Glutamina'),
+(9, 'Hipercalórico'),
+(10, 'Omega 3');
 
 -- --------------------------------------------------------
 
 --
--- Estrutura para tabela `usuarios`
+-- Estrutura da tabela `usuarios`
 --
 
 CREATE TABLE `usuarios` (
   `idUsuario` int NOT NULL,
-  `fotoUsuario` varchar(100) NOT NULL,
-  `nomeUsuario` varchar(50) NOT NULL,
+  `fotoUsuario` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `nomeUsuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
   `dataNascimentoUsuario` date NOT NULL,
-  `cidadeUsuario` varchar(30) NOT NULL,
-  `telefoneUsuario` varchar(20) NOT NULL,
-  `emailUsuario` varchar(50) NOT NULL,
-  `senhaUsuario` varchar(100) NOT NULL,
-  `tipoUsuario` varchar(15) NOT NULL
+  `cidadeUsuario` varchar(30) COLLATE utf8mb4_general_ci NOT NULL,
+  `telefoneUsuario` varchar(20) COLLATE utf8mb4_general_ci NOT NULL,
+  `emailUsuario` varchar(50) COLLATE utf8mb4_general_ci NOT NULL,
+  `senhaUsuario` varchar(100) COLLATE utf8mb4_general_ci NOT NULL,
+  `tipoUsuario` varchar(15) COLLATE utf8mb4_general_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Despejando dados para a tabela `usuarios`
+-- Extraindo dados da tabela `usuarios`
 --
 
 INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `dataNascimentoUsuario`, `cidadeUsuario`, `telefoneUsuario`, `emailUsuario`, `senhaUsuario`, `tipoUsuario`) VALUES
@@ -98,7 +105,7 @@ INSERT INTO `usuarios` (`idUsuario`, `fotoUsuario`, `nomeUsuario`, `dataNascimen
 --
 
 --
--- Índices de tabela `anuncios`
+-- Índices para tabela `anuncios`
 --
 ALTER TABLE `anuncios`
   ADD PRIMARY KEY (`idAnuncio`),
@@ -106,19 +113,19 @@ ALTER TABLE `anuncios`
   ADD KEY `fk_anuncios_categorias` (`Categorias_idCategoria`);
 
 --
--- Índices de tabela `categorias`
+-- Índices para tabela `categorias`
 --
 ALTER TABLE `categorias`
   ADD PRIMARY KEY (`idCategoria`);
 
 --
--- Índices de tabela `usuarios`
+-- Índices para tabela `usuarios`
 --
 ALTER TABLE `usuarios`
   ADD PRIMARY KEY (`idUsuario`);
 
 --
--- AUTO_INCREMENT para tabelas despejadas
+-- AUTO_INCREMENT de tabelas despejadas
 --
 
 --
@@ -131,7 +138,7 @@ ALTER TABLE `anuncios`
 -- AUTO_INCREMENT de tabela `categorias`
 --
 ALTER TABLE `categorias`
-  MODIFY `idCategoria` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idCategoria` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT de tabela `usuarios`
@@ -140,11 +147,11 @@ ALTER TABLE `usuarios`
   MODIFY `idUsuario` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
--- Restrições para tabelas despejadas
+-- Restrições para despejos de tabelas
 --
 
 --
--- Restrições para tabelas `anuncios`
+-- Limitadores para a tabela `anuncios`
 --
 ALTER TABLE `anuncios`
   ADD CONSTRAINT `fk_anuncios_categorias` FOREIGN KEY (`Categorias_idCategoria`) REFERENCES `categorias` (`idCategoria`),

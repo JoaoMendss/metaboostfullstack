@@ -2,7 +2,7 @@
 
     $hostBD   = "localhost"; //Define o local do servidor do BD
     $userBD   = "root"; //Define o usuário do BD (Padrão: root)
-    $senhaBD  = ""; //Define a senha do BD (Padrão: "")
+    $senhaBD  = "root"; //Define a senha do BD (Padrão: "")
     $database = "metaboost"; //Define qual base será realizada a conexão
 
     //Função do PHP para estabelecer conexão com BD

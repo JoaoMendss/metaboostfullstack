@@ -31,27 +31,27 @@ if (session_status() === PHP_SESSION_NONE) {
     <nav class="navbar">
       <a href="index.php#">Home</a>
       <a href="index.php#about">Sobre</a>
-      <a href="index.php#menu">Anuncios</a>
+      <a href="index.php#menu">Anúncios</a>
     </nav>
 
     <div class="icons">
       <?php if (isset($_SESSION['idUsuario'])): ?>
-        <!-- Usuário logado: mostra Logout -->
-        <a href="logout.php">
-          <img width="30" height="30" src="https://img.icons8.com/android/30/ffffff/logout-rounded.png" alt="logout"/>
-        </a>
+      <!-- Só administradores podem cadastrar Anuncio -->
+      <a href="formAnuncio.php">
+        <img title="Anunciar" width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar Anúncio"/>
+      </a>
 
-        <?php if ($_SESSION['tipoUsuario'] === 'administrador'): ?>
-          <!-- Só administradores podem cadastrar Anuncio -->
-          <a href="formAnuncio.php">
-            <img width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar Anúncio"/>
-          </a>
-        <?php endif; ?>
+      <?php if ($_SESSION['tipoUsuario'] === 'administrador' || 'cliente'): ?>
+      <!-- Usuário logado: mostra Logout -->
+      <a href="logout.php">
+        <img title="Sair" width="30" height="30" src="https://img.icons8.com/android/30/ffffff/logout-rounded.png" alt="logout"/>
+      </a>
+      <?php endif; ?>
 
       <?php else: ?>
         <!-- Usuário não logado: mostra Login -->
         <a href="formLogin.php">
-          <img width="30" height="30" src="https://img.icons8.com/material-rounded/30/ffffff/user-male-circle.png" alt="login"/>
+          <img title="Entrar" width="30" height="30" src="https://img.icons8.com/material-rounded/30/ffffff/user-male-circle.png" alt="login"/>
         </a>
       <?php endif; ?>
     </div>

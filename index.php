@@ -74,7 +74,7 @@ include "header.php";
           if($statusAnuncio != 'esgotado'){
             echo "<a href='visualizarAnuncio.php?idAnuncio=$idAnuncio' class='btn'>Visualizar Anuncio</a>";
           } else {
-            echo "<div class='btn' style='background:#888; cursor: not-allowed;'>Esgotado</div>";
+            echo "<a href='visualizarAnuncio.php?idAnuncio=$idAnuncio' class='btn' style='background: #888;'>Esgotado</a>";
           }
 
       echo "</div>";
