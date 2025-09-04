@@ -46,13 +46,14 @@ include "header.php";
   </section>
 
   <section class="menu" id="menu">
-    <h2 class="title">Nossos <span>Anuncios</span></h2>
+    <h2 class="title">Últimos <span>Anuncios</span></h2>
 
     <div class="box-container">
-      
-      <?php
-  $query = "SELECT * FROM Anuncios";
-  $res = mysqli_query($conn, $query);
+
+<?php
+  // Seleciona apenas os 6 últimos anúncios
+  $listarAnuncios = "SELECT * FROM Anuncios ORDER BY idAnuncio DESC LIMIT 6";
+  $res = mysqli_query($conn, $listarAnuncios);
 
   if(mysqli_num_rows($res) > 0){
     while($registro = mysqli_fetch_assoc($res)){
@@ -85,15 +86,17 @@ include "header.php";
 ?>
 
     </div>
+    <div style="text-align:center; margin-top:20px;">
+      <a href="gridAnuncios.php" class="btn">Ver Todos os Anuncios</a>
+    </div>
   </section>
 
-  <!-- Avaliações e outras seções continuam iguais... -->
   <section class="review" id="review">
-    <!-- Pode copiar daqui do seu HTML -->
+    <!-- Avaliações -->
   </section>
 
   <section class="address" id="address">
-    <!-- Pode copiar daqui do seu HTML -->
+    <!-- Endereço -->
   </section>
 
  <?php

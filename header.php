@@ -28,6 +28,21 @@ if (session_status() === PHP_SESSION_NONE) {
   <section>
     <a href="index.php"><img src="./img/logo.png" alt="logo" width="80"></a>
 
+    <?php
+      error_reporting(0); // Desabilita reportagens de erros de execução
+      session_start(); // Inicia sessão
+
+      if (isset($_SESSION['logado']) && $_SESSION['logado'] === true) {
+          $idUsuario    = $_SESSION['idUsuario'];
+          $tipoUsuario  = $_SESSION['tipoUsuario'];
+          $nomeUsuario  = $_SESSION['nomeUsuario'];
+          $emailUsuario = $_SESSION['emailUsuario'];
+
+          $nomeCompleto = explode(' ', $nomeUsuario);
+          $primeiroNome = $nomeCompleto[0];
+      }
+    ?>
+
     <nav class="navbar">
       <a href="index.php#">Home</a>
       <a href="index.php#about">Sobre</a>
@@ -36,17 +51,19 @@ if (session_status() === PHP_SESSION_NONE) {
 
     <div class="icons">
       <?php if (isset($_SESSION['idUsuario'])): ?>
-      <!-- Só administradores podem cadastrar Anuncio -->
-      <a href="formAnuncio.php">
-        <img title="Anunciar" width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar Anúncio"/>
-      </a>
+        <!-- Só administradores podem cadastrar Anuncio -->
+        <a href="formAnuncio.php">
+          <img title="Anunciar" width="30" height="30" src="https://img.icons8.com/ios/30/ffffff/plus--v1.png" alt="cadastrar Anúncio"/>
+        </a>
 
-      <?php if ($_SESSION['tipoUsuario'] === 'administrador' || 'cliente'): ?>
-      <!-- Usuário logado: mostra Logout -->
-      <a href="logout.php">
-        <img title="Sair" width="30" height="30" src="https://img.icons8.com/android/30/ffffff/logout-rounded.png" alt="logout"/>
-      </a>
-      <?php endif; ?>
+        <?php if ($_SESSION['tipoUsuario'] === 'administrador' || 'cliente'): ?>
+          <!-- Botão de logout -->
+          <a href="logout.php">
+            <img title="Sair" width="30" height="30" src="https://img.icons8.com/android/30/ffffff/logout-rounded.png" alt="logout"/>
+          </a>
+          <!-- Mensagem de boas-vindas -->
+          <span style="font-size:12pt; color:white; margin-right:10px;">Olá, <?php echo $primeiroNome; ?>!</span>
+        <?php endif; ?>
 
       <?php else: ?>
         <!-- Usuário não logado: mostra Login -->
