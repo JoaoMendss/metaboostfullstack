@@ -80,7 +80,28 @@ section {
     margin-top: 1rem;
     display: inline-block;
     font-weight: bold;
+}
 
+.btn-conheca {
+    background: var(--main--color);
+    color: #000000;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+    font-weight: bold;
+}
+
+.btn-responsivo {
+    background: var(--main--color);
+    color: #000000;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    cursor: pointer;
+    margin-top: 1rem;
+    display: inline-block;
+    font-weight: bold;
 }
 
 .button:hover {
@@ -354,4 +375,194 @@ section {
   display: flex;
   align-items: center;
   gap: 10px;
+}
+
+/* Responsividade começa a partir de 1180px para baixo */
+@media (max-width: 1180px) {
+  .content h2 { font-size: 6rem; }
+  .content h3 { font-size: 3.5rem; }
+  .content p { font-size: 1.8rem; }
+
+  section {
+    padding: 2rem 1rem;
+  }
+
+  .about .row {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .anuncio-container {
+    grid-template-columns: 1fr; /* vira uma coluna só */
+    margin-top: 100px;
+  }
+
+  .anuncio-img img {
+    height: auto;
+    max-height: 300px;
+  }
+
+  .anuncio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+/* Ajustes para telas ainda menores */
+@media (max-width: 768px) {
+  .content h2 { font-size: 4.5rem; }
+  .content h3 { font-size: 2.8rem; }
+  .content p { font-size: 1.6rem; }
+
+  .title {
+    font-size: 3.5rem;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
+
+  .btn-responsivo {
+    width: 50%;
+    padding: 1rem;
+    font-size: 1.6rem;
+  }
+  
+  .anuncio-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .content h2 { font-size: 3rem; }
+  .content h3 { font-size: 2rem; }
+  .content p { font-size: 1.4rem; }
+
+  .title {
+    font-size: 2.5rem;
+  }
+
+  .alert {
+    font-size: 1.6rem;
+    padding: 2rem;
+  }
+}
+
+/* Botão hambúrguer */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 30px;
+  height: 22px;
+  cursor: pointer;
+}
+
+.menu-toggle span {
+  display: block;
+  height: 4px;
+  background: #fff;
+  border-radius: 2px;
+}
+
+/* Esconde menu no mobile */
+@media (max-width: 890px) {
+  .navbar {
+    display: none;
+    flex-direction: column;
+    background: #000;
+    position: absolute;
+    top: 70px; /* altura do header */
+    right: 20px;
+    padding: 15px;
+    border-radius: 8px;
+  }
+
+  .navbar a {
+    margin: 10px 0;
+    font-size: 1.6rem;
+  }
+
+  .navbar.active {
+    display: flex; /* Mostra quando ativo */
+  }
+
+  .menu-toggle {
+    display: flex;
+    margin-right: 9px;
+  }
+}
+
+/* garante referência para posicionamento absoluto do botão */
+.header section { position: relative; }
+
+/* Botão hamburguer (base) */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 32px;
+    height: 22px;
+    cursor: pointer;
+    z-index: 300;
+}
+.menu-toggle span {
+    display: block;
+    height: 3px;
+    background: #fff;
+    border-radius: 2px;
+    transition: transform .25s ease, opacity .25s ease;
+}
+
+/* Transformação para X quando aberto */
+.menu-toggle.open span:nth-child(1) { transform: translateY(9px) rotate(45deg); }
+.menu-toggle.open span:nth-child(2) { opacity: 0; }
+.menu-toggle.open span:nth-child(3) { transform: translateY(-9px) rotate(-45deg); }
+
+/* Regras responsivas */
+@media (max-width: 890px) {
+    .navbar {
+    display: none !important; /* escondido no mobile por padrão */
+    }
+
+    .menu-toggle {
+    display: flex;
+    position: absolute;
+    right: 18px;           /* canto direito do header */
+    top: 50%;
+    transform: translateY(-50%);
+    }
+
+    /* quando ativo, mostra o nav como dropdown */
+    .navbar.active {
+    display: flex !important;
+    flex-direction: column;
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 16px;
+    background: #000;
+    padding: 0.8rem 1rem;
+    border-radius: 8px;
+    border: var(--border);
+    gap: 0.6rem;
+    min-width: 160px;
+    z-index: 250;
+    }
+
+    .navbar.active a {
+    margin: 0;
+    padding: 6px 8px;
+    font-size: 1.6rem;
+    }
+
+    /* evita que os ícones fiquem cobertos pelo botão (ajuste simples) */
+    .icons {
+    margin-right: 56px;
+    }
 }

@@ -23,7 +23,7 @@ include "header.php";
         <h2>METABOOST</h2><h3> OS MELHORES SUPLEMENTOS PARA GAMERS</h3>
         <p>Aumente seu foco, energia e resistência com os melhores suplementos do mercado.
           Seja para treinar ou maratonar aquele game, o MetaBoost te dá a força que você precisa para alcançar o próximo nível. </p>
-        <a href="#menu" class="btn">Conheça os Anuncios</a>
+        <a href="#menu" class="btn-conheca">Conheça os Anuncios</a>
       </div>
     </section>
   </div>
@@ -87,7 +87,7 @@ include "header.php";
 
     </div>
     <div style="text-align:center; margin-top:20px;">
-      <a href="gridAnuncios.php" class="btn">Ver Todos os Anuncios</a>
+      <a href="gridAnuncios.php" class="btn-responsivo">Ver Todos os Anuncios</a>
     </div>
   </section>
 

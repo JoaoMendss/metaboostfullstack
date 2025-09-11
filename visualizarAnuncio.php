@@ -57,7 +57,7 @@ include "header.php";
               <div class="preco">R$ <?= $valorAnuncio ?></div>
 
               <?php if ($statusAnuncio !== 'esgotado'): ?>
-                <a href="https://wa.me/<?= $numeroWhatsApp ?>" target="_blank" class="btn">Falar com Vendedor</a>
+                <a href="https://wa.me/<?= $numeroWhatsApp ?>" target="_blank" class="btn-responsivo">Falar com Vendedor</a>
               <?php else: ?>
                 <div class="btn esgotado-btn">Anúncio esgotado</div>
               <?php endif; ?>
