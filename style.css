@@ -113,6 +113,14 @@ section {
     letter-spacing: 0.1rem;
 }
 
+.btn-conheca:hover {
+    letter-spacing: 0.1rem;
+}
+
+.btn-responsivo:hover {
+    letter-spacing: 0.1rem;
+}
+
 .home-container {
     background: url("./img/Home.jpg");
     height: 105vh;
