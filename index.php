@@ -81,7 +81,21 @@ include "header.php";
       echo "</div>";
     }
   } else {
-    echo "<p style='color:white;'>Nenhum Anuncio encontrado.</p>";
+    echo "
+  <div style='
+      background: linear-gradient(135deg, #dc3545, #a71d2a);
+      color: #fff;
+      text-align: center;
+      padding: 15px 25px;
+      border-radius: 12px;
+      margin: 20px auto;
+      max-width: 600px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      font-size: 18px;
+      font-weight: 500;
+  '>
+    ❌ Não há anúncios cadastrados no sistema!
+  </div>";
   }
 ?>
 
